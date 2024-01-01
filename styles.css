@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@200;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  margin: 0;
+  font-family: "Heebo", sans-serif;
+  transition: all 0.4s;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.clock {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 50%;
+}
+
+.seconds {
+  height: 200px;
+  width: 200px;
+}
+.minutes {
+  height: 150px;
+  width: 150px;
+}
+.hours {
+  height: 100px;
+  width: 100px;
+}
+
+.calipers {
+  position: absolute;
+  height: 3px;
+  width: 50%;
+  background-color: black;
+  top: 50%;
+  left: 0;
+  transform-origin: right;
+}
+.calipers::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateX(50%) translateY(-50%);
+
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  background-color: black;
+}
+.second {
+  background-color: orangered;
+  transform: rotate(90deg);
+}
+
+.hour {
+  /* transform: rotate(0deg); */
+}
+.second::before {
+  content: "";
+  height: 8px;
+  width: 8px;
+  background-color: orangered;
+  z-index: 1;
+}
+
+.circle {
+  border-radius: 50%;
+  padding: 5px 10px;
+  text-align: center;
+  font-weight: bold;
+
+  background-color: black;
+  color: #fff;
+}
+.btn {
+  padding: 10px 15px;
+  border: none;
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: bold;
+}
+.btn:active {
+  scale: 0.98;
+}
+
+body.active {
+  background-color: black;
+  color: #fff;
+  transition: all 0.4s;
+}
+body.active .calipers,
+body.active .calipers::before {
+  background-color: #fff;
+}
+body.active .second::before,
+body.active .second {
+  background-color: orangered;
+}
+
+body.active .circle,
+body.active .btn {
+  background-color: #fff;
+  color: black;
+}
